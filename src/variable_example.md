@@ -97,14 +97,51 @@ void ACountdown::CountdownHasFinished()
 }
 ```
 
-Expose member variavle to editor. use `UPROPERRY(EditAnywhere)`
+## Expose member variable to editor. use `UPROPERTY(EditAnywhere)`
 
 ```cpp
 public:	
+	// How long, in seconds, the countdown
+	UPROPERTY(EditAnywhere);
+
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERRY(EditAnywhere)
 
 	int32 CountdownTime;
+
+	UTextRenderComponent* CountdownText;
+
+	void UpdateTimerDisplay();
+	void AdvancedTimer();
+	void CountdownHasFinished();
+
+	FTimerHandle CountdownTimerHandle;
 ```
+
+## Expose member function to blueprint
+
+use `UFUNCTION`
+
+header sample
+```cpp
+	void AdvancedTimer();
+
+	UFUNCTION(BlueprintNativeEvent)
+	void CountdownHasFinished();
+	virtual void CountdownHasFinished_Implementation();
+
+	FTimerHandle CountdownTimerHandle;
+```
+
+cpp file sample:
+```cpp
+void ACountdown::CountdownHasFinished_Implementation()
+{
+	CountdownText->SetText(FText::FromString(TEXT("Go!")));
+
+}
+```
+
+
