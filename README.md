@@ -5,5 +5,5 @@
 |    | Function   | Refence link  |
 |--- |------------|---|
 |  1 |   Change editor language|  [click me](https://github.dev/miseon119/unreal-engine-develop/blob/919fdd8144b24a514821d92fd08baaf3fa0cf0ea/settings_manual.md#L3) |
-|  2 |   |   |
+|  2 |  camera control | [two modes](https://github.dev/miseon119/unreal-engine-develop/blob/main/src/camera_ctl.md)  |
 |  3 |   |   |
